@@ -1,0 +1,23 @@
+
+const Choice = async (req, res) => {
+    const selecao = req.body.selecao;
+    const action = req.body.action;
+
+    console.log(`Usuário escolheu: ${selecao}, Ação: ${action}`);
+
+    if (selecao === "admin") {
+        if (action === "register") {
+            return res.redirect('/admin/register');
+        } else {
+            return res.redirect('/admin/login');
+        }
+    } else {
+        if (action === "register") {
+            return res.redirect('/user/register');
+        } else {
+            return res.redirect('/user/login');
+        }
+    }
+}
+
+module.exports = { Choice };
